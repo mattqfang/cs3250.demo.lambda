@@ -7,9 +7,13 @@ public class SumCalculator {
 		SumCalculator summer = new SumCalculator();
 		int answer = summer.sum(1, 100, x -> true);
 		System.out.println("The answer is " + answer);
-		int even = summer.sum(1, 100, x -> x % 2 == re);
+		int even = summer.sum(1, 100, new EvenNumberCondition());
 		System.out.println("The answer is " + even);
-		int answer3r1 = summer.sum(1, 100, x -> x % 3 == 1);
+		int answer3r1 = summer.sum(1, 100, x -> {int r = x % 3;
+		                                          if (r == 1) {
+		                                        	 return true;
+		                                        	 } else { return false;}
+		                                          });
 		System.out.println("The answer is " + answer3r1);
 		int noMore = summer.sum(1, 100, x -> x % 5 == 4);
 		System.out.println("The answer is " + noMore);
